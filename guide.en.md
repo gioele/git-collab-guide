@@ -156,7 +156,28 @@ title "Make headings red and funny".
 Publishing our change
 ---------------------
 
-TODO: push to remote repo
+The commit we just did is sitting in the repository in our computer. Our
+remote repository does not know about it, let alone the maintainers of
+`fluffytron`.
+
+So, it is time to publish the commit with the change and then request its
+integration in the main project.
+
+The git way to publish a commit is pushing it to the remote repository,
+just like we did to publish our new `headings-color` branch. Please note
+that are not the single commits that are pushed, but complete branches.
+Thus, what we have to do now is to publish our `headings-color` branch.
+
+    $ git push
+
+Please note that git knows where to publish this branch (in the branch
+of the same name in the `origin` remote) because it remembers that
+location from when we created and pushed the branch at the beginning.
+
+We can have a look at the GitHub page and see that the changes are
+indeed there. Nice.
+
+TODO: image with GitHub log.
 
 
 Let's request the integration of our changes
