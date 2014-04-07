@@ -201,7 +201,47 @@ know that there is a new pull request waiting to be integrated.
 Making adjustments to a published branch
 ----------------------------------------
 
-TODO: second commit in feature branch
+In these trying times, not every pull request gets accepted at the first
+attempt. Sometimes the maintainers like most of the changes we submitted
+but ask for some adjustments to be done.
+im
+In our case, the integrator does not fancy our use of Comic Sans: too
+childish.
+
+TODO: image of GitHub comment on comic sans
+
+So we go and change that to a more boring but more appropriate Helvetica.
+What don't you do to please these maintainers...
+
+Before making any adjustment to our changes, we make sure that we are
+still in the `headings-color` branch. (In the meantime we may have worked
+on something else in other branches.)
+
+    $ git checkout headings-color
+
+Now we go forth and make the adjustments that have been requested.
+
+TODO: illustration of CSS changed to Helvetica
+
+Just like before, we tell git about the changed files and make a commit.
+
+    $ git add style.css
+    $ git commit -m "Helvetica is a more appropriate font"
+
+Again just like before, we push the `headings-color` branch to our remote
+repository.
+
+    $ git push
+    TODO: output of git push
+
+This is exactly what we have done for our first commit. The only difference
+is that now we do not need to issue a new pull request. The original pull
+request, being linked to the `headings-color` branch, has automatically
+been updated to contain both the old and the new commit. The final result
+is a combination of the two commits, as can be seen in the GitHub page for
+the pull request.
+
+TODO: image of the updated pull request
 
 
 After the change has been accepted
