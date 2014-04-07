@@ -96,7 +96,39 @@ to have them integrated into the `fluffytron` project.
 A separate branch for our changes
 ---------------------------------
 
-TODO: a new feature branch
+Before we start making changes, we need to make sure we do not collide
+with or pollute other people's work while we work on our modifications.
+In git this is done using separate branches.
+
+A git branch is a copy of the working directory. You can think of
+a branch as a "context", different branches are used to separate
+different working contexts. In every repository there is a main branch
+called `master`. Project collaborators should never touch the `master`
+branch, as it is meant to be used only by the project maintainers that
+have (or should have) the technical knowledge and the expertise
+required manage that branch.
+
+Contributors should create a "feature branch" every time they want to
+change something. In our case we want to change the color of the headings
+of the `fluffytron` project; we create a new branch called `headings-color`
+based on the `master` branch.
+
+    $ git branch headings-color
+
+Creating a branch is not enough, we also have to switch to it, so that
+our modifications will be recorded in it instead of in the master branch.
+Switching to a branch is called doing a "checkout" of that branch.
+
+    $ git checkout headings-color
+
+Please note that we did create a new branch now, but that branch exists
+only in our local repository. We need to let the world know we did create
+it. To do so, we need to publish the new branch on our remote repository.
+In git publishing is done via "push" operations.
+
+    $ git push --set-upstream origin headings-color
+
+We are now ready to make our first change and publish it.
 
 
 Our first commit
