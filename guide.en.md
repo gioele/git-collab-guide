@@ -58,7 +58,39 @@ refer to at as the "working directory".
 Putting our repository in contact with the main repository
 ----------------------------------------------------------
 
-TODO: adding an upstream remote
+Before we can contribute anything, we have to make our repository "talk"
+to the main repository. However, we just began and we already have quite
+a bit of repositories to keep track of. Let's pause for a second and have
+a look at them.
+
+We have three repositories at hand:
+
+* the main repository: <https://github.com/gioele/fluffytron.git>;
+* our remote repository on GitHub: <https://github.com/git-learner/fluffytron.git>;
+* our local repository in our computer.
+
+We will operate mostly on our local repository, so, from now on we will
+refer to "our local repository" simply as "our repository".
+
+Our repository is already linked to our remote repository. This allows the
+changes we make to to our repository to be sent easily to the remote
+repository when we are ready to publish them. The address of our remote
+repository is stored in the repository configuration files as the "remote
+location" called `origin` or, in git terms, as the `origin` remote.
+
+    $ git remote -v
+    TODO: output of "git remote -v"
+
+What we need to do now is to link our repository to the main `fluffytron`
+repository. We do this adding a new remote. Usually this remote is named
+`upstream` or after the person or the organization that manages it. In
+this case we will try to be less formal and will call it "gioele".
+
+    $ git remote add gioele https://github.com/gioele/fluffytron.git
+    TODO: output of "git remote add gioele"
+
+We are now done with the setup and we can start making changes and ask
+to have them integrated into the `fluffytron` project.
 
 
 A separate branch for our changes
