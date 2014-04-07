@@ -93,6 +93,14 @@ We are now done with the setup and we can start making changes and ask
 to have them integrated into the `fluffytron` project.
 
 
+We must be sure to be working with up-to-date files
+---------------------------------------------------
+
+TODO: discuss pull --ff-only, useful to say "start here when you need to make a change"
+
+TODO: review the final step, it contains basically the same instructions
+
+
 A separate branch for our changes
 ---------------------------------
 
