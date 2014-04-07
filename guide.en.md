@@ -183,7 +183,19 @@ TODO: image with GitHub log.
 Let's request the integration of our changes
 --------------------------------------------
 
-TODO: pull request
+With our `headings-color` branch published, we can now request its
+integration in the main repository.
+
+git doesn't have a standard way to request the integration of external
+changes; we will resort to using GitHub "pull requests".
+
+TODO: image of GitHub pull request process
+
+What we just did created a new issue in the issue tracker of the
+`fluffytron` project that says that we have a branch called `headings-color`
+and we would like to have it integrated into the main repository. GitHub
+has also sent some email(s) to the `fluffytron` maintainers to let them
+know that there is a new pull request waiting to be integrated.
 
 
 Making adjustments to a published branch
