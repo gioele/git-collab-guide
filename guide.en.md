@@ -247,4 +247,52 @@ TODO: image of the updated pull request
 After the change has been accepted
 ----------------------------------
 
-TODO: pull --ff-only upstream/master
+Finally, the integrators have accepted our changes and merged them into
+the main repository. This can be seen clearly in the project history. See
+the small bump ending in "Merged new heading styles from git-learner"?
+
+TODO: image commit log
+
+We must now do two things to consider our work done: deleting the
+`headings-color` branch and update our repositories to reflect the
+advances made by the `fluffytron` project.
+
+We start deleting the `headings-color` branch because it is useless now
+that has been integrated in the main repository.
+
+We follow the GitHub suggestion to delete the branch...
+
+TODO: image delete branch in GitHub
+
+...then we remove it from our repository and switch back to the master
+branch.
+
+    $ git branch -D headings-color
+    TODO: output of git branch -D
+    $ git checkout master
+    TODO: output of checkout master
+
+We proceed then merging back the main repository into our repository.
+We will use a particular kind of merge called "fast-forward only".
+"Fast-forward only" in this context means that we want the merge process
+to be completely automatic because we expect the integrator to take care
+of all the intricacies of the git merging process.
+
+    $ git pull --ff-only gioele/master
+    TODO: output of git pull --ff-only
+
+If anything goes wrong and the fast-forward merge cannot be done, you
+should tell the maintainer: either they did something wrong (they will fix
+that) or you did mess somehow (they will tell you how to sort things out).
+
+Final step: publishing the updated state of our repository to show
+everybody that we are up to date with the main repository.
+
+    $ git push
+    TODO: output of final git push
+
+We are done. Next time we want to submit a change we can skip all the
+preparatory steps and start directly with the update of our master branch
+and the creation of a new branch.
+
+Good work!
