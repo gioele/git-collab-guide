@@ -134,7 +134,23 @@ We are now ready to make our first change and publish it.
 Our first commit
 ----------------
 
-TODO: first commit
+We can now change the main color of the headings to something more cool,
+from black to red and with the font Comic Sans.
+
+TODO: picture CSS changes
+
+This change has been saved in the working directory but has not been
+recoded in the project history. To do so we need to "commit" our change.
+To commit means to tell git that we did change some files and that we
+want that changes recorded, accompanied by a short title that describes
+the changes and an optional longer message that explains why we made
+these changes. For such a simple modification we will use just the short
+title "Make headings red and funny".
+
+    # first we tell git that we changed some files
+    $ git add style.css
+    # then we commit the changed files
+    $ git commit -m "Make the headings red and funny"
 
 
 Publishing our change
