@@ -26,7 +26,7 @@ file "#{SITE_DIR}/guide.en.html" do |file|
 	doc = Kramdown::Document.new(content, options)
 
 	converted = doc.to_html
-	converted.gsub!(/(\$ .+)$/, '<span class="cmdline">\1</span>')
+	converted.gsub!(/(\$) (.+)$/, '<span class="cmdline"><span class="prompt">\1 </span>\2</span>')
 
 	File.open(file.name, 'w') { |f| f << converted }
 end
