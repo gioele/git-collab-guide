@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml" xml:lang='en' lang='en'>
+	<head>
+		<meta charset='utf-8'/>
+		<link rel='stylesheet' type='text/css' href='typeplate.css'/>
+		<link rel='stylesheet' type='text/css' href='style.css'/>
+		<link rel='stylesheet' type='text/css' href='print.css'/>
+		<meta name="generator" content="kramdown 1.3.3" />
+		<title>Git collaboration guide</title>
+	</head>
+	<body>
+		<h1 id="git-collaboration-guide">Git collaboration guide</h1>
+
+<p>There are many projects that are developed using git. However, many people
+do not contribute to these projects because of git and its reputation as a
+difficult tool. To be honest, git is a difficult tool, but if one focuses
+only on its main features, they can learn git and be productive with it
+in few minutes.</p>
+
+<p>This guide will show you how to use git to contribute to a fictitious
+<code>fluffytron</code> project. We will set up our own copy of the <code>fluffytron</code>
+repository then make some changes and see these modifications being
+integrated back into the <code>fluffytron</code> project.</p>
+
+<p>TODO: disclaimer, this is just one way to use git</p>
+
+<h2 id="first-we-need-a-fork">First, we need a fork</h2>
+
+<p>The project <code>fluffytron</code> is hosted on GitHub. We will also use GitHub to
+store our own copy of the project.</p>
+
+<p>In git parlance, each copy of the project is a “repository”. A repository
+contains all the files of a project, plus much information about all the
+changes that those files went through.</p>
+
+<p>The URL of the <code>fluffytron</code> project is <a href="https://github.com/gioele/fluffytron">https://github.com/gioele/fluffytron</a>.</p>
+
+<p>We cannot make any modification to that repository. All the modifications
+we have to make them first in our copy of the repository and then ask the
+project maintainers to ingrate them. In git terms, we need to “fork”
+the main <code>fluffytron</code> repository.</p>
+
+<p>To fork the main repository we use the GitHub interface.</p>
+
+<p>TODO: images of the forking process</p>
+
+<p>We just created a fork of the original repository on the GitHub website.
+To do any modification we need to clone our own repository on our computer.</p>
+
+<pre><code><span class="cmdline">$ git clone https://github.com/gioele/fluffytron.git</span>
+</code></pre>
+
+<p>We just created a local repository of our own repository. (It is slightly
+confusing, isn’t it? It will be clearer later.) Let’s see what we have
+now in our computer.</p>
+
+<p>TODO: image directory contents</p>
+
+<p>We have a new directory that contains all the files of the project plus a
+special directory <code>.git</code> that contains all the history of the files and
+other pieces of information. The directory as a whole is called the “local
+repository”. When we take in consideration only the project files proper
+(that is, the content of the directory excluding the <code>.git</code> directory) we
+refer to at as the “working directory”.</p>
+
+<h2 id="putting-our-repository-in-contact-with-the-main-repository">Putting our repository in contact with the main repository</h2>
+
+<p>Before we can contribute anything, we have to make our repository “talk”
+to the main repository. However, we just began and we already have quite
+a bit of repositories to keep track of. Let’s pause for a second and have
+a look at them.</p>
+
+<p>We have three repositories at hand:</p>
+
+<ul>
+  <li>the main repository: <a href="https://github.com/gioele/fluffytron.git">https://github.com/gioele/fluffytron.git</a>;</li>
+  <li>our remote repository on GitHub: <a href="https://github.com/git-learner/fluffytron.git">https://github.com/git-learner/fluffytron.git</a>;</li>
+  <li>our local repository in our computer.</li>
+</ul>
+
+<p>We will operate mostly on our local repository, so, from now on we will
+refer to “our local repository” simply as “our repository”.</p>
+
+<p>Our repository is already linked to our remote repository. This allows the
+changes we make to to our repository to be sent easily to the remote
+repository when we are ready to publish them. The address of our remote
+repository is stored in the repository configuration files as the “remote
+location” called <code>origin</code> or, in git terms, as the <code>origin</code> remote.</p>
+
+<pre><code><span class="cmdline">$ git remote -v</span>
+TODO: output of "git remote -v"
+</code></pre>
+
+<p>What we need to do now is to link our repository to the main <code>fluffytron</code>
+repository. We do this adding a new remote. Usually this remote is named
+<code>upstream</code> or after the person or the organization that manages it. In
+this case we will try to be less formal and will call it “gioele”.</p>
+
+<pre><code><span class="cmdline">$ git remote add gioele https://github.com/gioele/fluffytron.git</span>
+TODO: output of "git remote add gioele"
+</code></pre>
+
+<p>We are now done with the setup and we can start making changes and ask
+to have them integrated into the <code>fluffytron</code> project.</p>
+
+<h2 id="we-must-be-sure-to-be-working-with-up-to-date-files">We must be sure to be working with up-to-date files</h2>
+
+<p>TODO: discuss pull –ff-only, useful to say “start here when you need to make a change”</p>
+
+<p>TODO: review the final step, it contains basically the same instructions</p>
+
+<h2 id="a-separate-branch-for-our-changes">A separate branch for our changes</h2>
+
+<p>Before we start making changes, we need to make sure we do not collide
+with or pollute other people’s work while we work on our modifications.
+In git this is done using separate branches.</p>
+
+<p>A git branch is a copy of the working directory. You can think of
+a branch as a “context”, different branches are used to separate
+different working contexts. In every repository there is a main branch
+called <code>master</code>. Project collaborators should never touch the <code>master</code>
+branch, as it is meant to be used only by the project maintainers that
+have (or should have) the technical knowledge and the expertise
+required manage that branch.</p>
+
+<p>Contributors should create a “feature branch” every time they want to
+change something. In our case we want to change the color of the headings
+of the <code>fluffytron</code> project; we create a new branch called <code>headings-color</code>
+based on the <code>master</code> branch.</p>
+
+<pre><code><span class="cmdline">$ git branch headings-color</span>
+</code></pre>
+
+<p>Creating a branch is not enough, we also have to switch to it, so that
+our modifications will be recorded in it instead of in the master branch.
+Switching to a branch is called doing a “checkout” of that branch.</p>
+
+<pre><code><span class="cmdline">$ git checkout headings-color</span>
+</code></pre>
+
+<p>Please note that we did create a new branch now, but that branch exists
+only in our local repository. We need to let the world know we did create
+it. To do so, we need to publish the new branch on our remote repository.
+In git publishing is done via “push” operations.</p>
+
+<pre><code><span class="cmdline">$ git push --set-upstream origin headings-color</span>
+</code></pre>
+
+<p>We are now ready to make our first change and publish it.</p>
+
+<h2 id="our-first-commit">Our first commit</h2>
+
+<p>We can now change the main color of the headings to something more cool,
+from black to red and with the font Comic Sans.</p>
+
+<p>TODO: picture CSS changes</p>
+
+<p>This change has been saved in the working directory but has not been
+recoded in the project history. To do so we need to “commit” our change.
+To commit means to tell git that we did change some files and that we
+want that changes recorded, accompanied by a short title that describes
+the changes and an optional longer message that explains why we made
+these changes. For such a simple modification we will use just the short
+title “Make headings red and funny”.</p>
+
+<pre><code># first we tell git that we changed some files
+<span class="cmdline">$ git add style.css</span>
+# then we commit the changed files
+<span class="cmdline">$ git commit -m "Make the headings red and funny"</span>
+</code></pre>
+
+<h2 id="publishing-our-change">Publishing our change</h2>
+
+<p>The commit we just did is sitting in the repository in our computer. Our
+remote repository does not know about it, let alone the maintainers of
+<code>fluffytron</code>.</p>
+
+<p>So, it is time to publish the commit with the change and then request its
+integration in the main project.</p>
+
+<p>The git way to publish a commit is pushing it to the remote repository,
+just like we did to publish our new <code>headings-color</code> branch. Please note
+that are not the single commits that are pushed, but complete branches.
+Thus, what we have to do now is to publish our <code>headings-color</code> branch.</p>
+
+<pre><code><span class="cmdline">$ git push</span>
+</code></pre>
+
+<p>Please note that git knows where to publish this branch (in the branch
+of the same name in the <code>origin</code> remote) because it remembers that
+location from when we created and pushed the branch at the beginning.</p>
+
+<p>We can have a look at the GitHub page and see that the changes are
+indeed there. Nice.</p>
+
+<p>TODO: image with GitHub log.</p>
+
+<h2 id="lets-request-the-integration-of-our-changes">Let’s request the integration of our changes</h2>
+
+<p>With our <code>headings-color</code> branch published, we can now request its
+integration in the main repository.</p>
+
+<p>git doesn’t have a standard way to request the integration of external
+changes; we will resort to using GitHub “pull requests”.</p>
+
+<p>TODO: image of GitHub pull request process</p>
+
+<p>What we just did created a new issue in the issue tracker of the
+<code>fluffytron</code> project that says that we have a branch called <code>headings-color</code>
+and we would like to have it integrated into the main repository. GitHub
+has also sent some email(s) to the <code>fluffytron</code> maintainers to let them
+know that there is a new pull request waiting to be integrated.</p>
+
+<h2 id="making-adjustments-to-a-published-branch">Making adjustments to a published branch</h2>
+
+<p>In these trying times, not every pull request gets accepted at the first
+attempt. Sometimes the maintainers like most of the changes we submitted
+but ask for some adjustments to be done.
+im
+In our case, the integrator does not fancy our use of Comic Sans: too
+childish.</p>
+
+<p>TODO: image of GitHub comment on comic sans</p>
+
+<p>So we go and change that to a more boring but more appropriate Helvetica.
+What don’t you do to please these maintainers…</p>
+
+<p>Before making any adjustment to our changes, we make sure that we are
+still in the <code>headings-color</code> branch. (In the meantime we may have worked
+on something else in other branches.)</p>
+
+<pre><code><span class="cmdline">$ git checkout headings-color</span>
+</code></pre>
+
+<p>Now we go forth and make the adjustments that have been requested.</p>
+
+<p>TODO: illustration of CSS changed to Helvetica</p>
+
+<p>Just like before, we tell git about the changed files and make a commit.</p>
+
+<pre><code><span class="cmdline">$ git add style.css</span>
+<span class="cmdline">$ git commit -m "Helvetica is a more appropriate font"</span>
+</code></pre>
+
+<p>Again just like before, we push the <code>headings-color</code> branch to our remote
+repository.</p>
+
+<pre><code><span class="cmdline">$ git push</span>
+TODO: output of git push
+</code></pre>
+
+<p>This is exactly what we have done for our first commit. The only difference
+is that now we do not need to issue a new pull request. The original pull
+request, being linked to the <code>headings-color</code> branch, has automatically
+been updated to contain both the old and the new commit. The final result
+is a combination of the two commits, as can be seen in the GitHub page for
+the pull request.</p>
+
+<p>TODO: image of the updated pull request</p>
+
+<h2 id="after-the-change-has-been-accepted">After the change has been accepted</h2>
+
+<p>Finally, the integrators have accepted our changes and merged them into
+the main repository. This can be seen clearly in the project history. See
+the small bump ending in “Merged new heading styles from git-learner”?</p>
+
+<p>TODO: image commit log</p>
+
+<p>We must now do two things to consider our work done: deleting the
+<code>headings-color</code> branch and update our repositories to reflect the
+advances made by the <code>fluffytron</code> project.</p>
+
+<p>We start deleting the <code>headings-color</code> branch because it is useless now
+that has been integrated in the main repository.</p>
+
+<p>We follow the GitHub suggestion to delete the branch…</p>
+
+<p>TODO: image delete branch in GitHub</p>
+
+<p>…then we remove it from our repository and switch back to the master
+branch.</p>
+
+<pre><code><span class="cmdline">$ git branch -D headings-color</span>
+TODO: output of git branch -D
+<span class="cmdline">$ git checkout master</span>
+TODO: output of checkout master
+</code></pre>
+
+<p>We proceed then merging back the main repository into our repository.
+We will use a particular kind of merge called “fast-forward only”.
+“Fast-forward only” in this context means that we want the merge process
+to be completely automatic because we expect the integrator to take care
+of all the intricacies of the git merging process.</p>
+
+<pre><code><span class="cmdline">$ git pull --ff-only gioele/master</span>
+TODO: output of git pull --ff-only
+</code></pre>
+
+<p>If anything goes wrong and the fast-forward merge cannot be done, you
+should tell the maintainer: either they did something wrong (they will fix
+that) or you did mess somehow (they will tell you how to sort things out).</p>
+
+<p>Final step: publishing the updated state of our repository to show
+everybody that we are up to date with the main repository.</p>
+
+<pre><code><span class="cmdline">$ git push</span>
+TODO: output of final git push
+</code></pre>
+
+<p>We are done. Next time we want to submit a change we can skip all the
+preparatory steps and start directly with the update of our master branch
+and the creation of a new branch.</p>
+
+<p>Good work!</p>
+
+	</body>
+</html>
