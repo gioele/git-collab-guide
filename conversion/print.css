@@ -23,11 +23,18 @@
 	a {
 		text-decoration: none;
 		color: black;
-		font-family: monospace;
 		word-wrap: break-word;
+	}
+
+	a[href^="http"] {
+		font-family: monospace;
 	}
 
 	h2 {
 		page-break-before: always;
+	}
+
+	h2#the-steps {
+		page-break-before: auto;
 	}
 }

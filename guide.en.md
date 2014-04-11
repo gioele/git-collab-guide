@@ -14,6 +14,13 @@ integrated back into the `fluffytron` project.
 
 TODO: disclaimer, this is just one way to use git
 
+The steps
+---------
+{:.no_toc}
+
+1. To be replaced by the table of contents
+{:toc}
+
 
 First, we need a fork
 ---------------------

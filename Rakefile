@@ -23,7 +23,8 @@ file "#{SITE_DIR}/guide.en.html" do |file|
 
 	content = File.open('guide.en.md').read
 	options = {
-		:template => 'conversion/layout.html.erb'
+		:template => 'conversion/layout.html.erb',
+		:toc_levels => [2, 3],
 	}
 
 	doc = Kramdown::Document.new(content, options)
