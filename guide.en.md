@@ -43,13 +43,21 @@ our own `fluffytron` repository available at <https://github.com/git-learner/flu
 To do any modification we need to clone this new repository onto our computer.
 
     $ git clone https://github.com/git-learner/fluffytron.git
+    Cloning into 'fluffytron'...
+    remote: Counting objects: 17, done.
+    remote: Compressing objects: 100% (12/12), done.
+    remote: Total 17 (delta 4), reused 17 (delta 4)
+    Unpacking objects: 100% (17/17), done.
+    Checking connectivity... done.
 
 Git has now downloaded a copy of our own repository in a directory of our
 computer. In git terms we just cloned our remote repository into our
 local repository (It is slightly confusing, isn't it? It will be clearer
 later.)
 
-Let's see what is inside this newly created directory.
+Let's move into this newly created directory and see what is inside it.
+
+    $ cd fluffytron
 
 TODO: image directory contents
 
@@ -85,7 +93,8 @@ repository is stored in the repository configuration files as the "remote
 location" called `origin` or, in git terms, as the `origin` remote.
 
     $ git remote -v
-    TODO: output of "git remote -v"
+    origin  https://github.com/git-learner/fluffytron.git (fetch)
+    origin  https://github.com/git-learner/fluffytron.git (push)
 
 What we need to do now is to link our repository to the main `fluffytron`
 repository. We do this adding a new remote. Usually this remote is named
@@ -93,7 +102,9 @@ repository. We do this adding a new remote. Usually this remote is named
 this case we will try to be less formal and will call it "gioele".
 
     $ git remote add gioele https://github.com/gioele/fluffytron.git
-    TODO: output of "git remote add gioele"
+    $ git fetch gioele
+    From https://github.com/gioele/fluffytron
+     * [new branch]      master     -> gioele/master
 
 We are now done with the setup and we can start making changes and ask
 to have them integrated into the `fluffytron` project.
@@ -134,6 +145,7 @@ our modifications will be recorded in it instead of in the master branch.
 Switching to a branch is called doing a "checkout" of that branch.
 
     $ git checkout headings-color
+    Switched to branch 'headings-color'
 
 Please note that we did create a new branch now, but that branch exists
 only in our local repository. We need to let the world know we did create
@@ -141,6 +153,12 @@ it. To do so, we need to publish the new branch on our remote repository.
 In git publishing is done via "push" operations.
 
     $ git push --set-upstream origin headings-color
+    Username for 'https://github.com': git-learner
+    Password for 'https://git-learner@github.com':
+    Total 0 (delta 0), reused 0 (delta 0)
+    To https://github.com/git-learner/fluffytron.git
+     * [new branch]      headings-color -> headings-color
+    Branch headings-color set up to track remote branch headings-color from origin.
 
 We are now ready to make our first change and publish it.
 
@@ -165,6 +183,8 @@ title "Make headings red and funny".
     $ git add style.css
     # then we commit the changed files
     $ git commit -m "Make the headings red and funny"
+    [headings-color e0b326d] Make the headings red and funny
+     1 file changed, 2 insertions(+)
 
 
 Publishing our change
@@ -183,6 +203,15 @@ that are not the single commits that are pushed, but complete branches.
 Thus, what we have to do now is to publish our `headings-color` branch.
 
     $ git push
+    Username for 'https://github.com': git-learner
+    Password for 'https://git-learner@github.com':
+    Counting objects: 5, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 344 bytes | 0 bytes/s, done.
+    Total 3 (delta 2), reused 0 (delta 0)
+    To https://github.com/git-learner/fluffytron.git
+       f6661f5..e574d48  headings-color -> headings-color
 
 Please note that git knows where to publish this branch (in the branch
 of the same name in the `origin` remote) because it remembers that
@@ -232,6 +261,8 @@ still in the `headings-color` branch. (In the meantime we may have worked
 on something else in other branches.)
 
     $ git checkout headings-color
+    Already on 'headings-color'
+    Your branch is up-to-date with 'origin/headings-color'.
 
 Now we go forth and make the adjustments that have been requested.
 
@@ -241,12 +272,22 @@ Just like before, we tell git about the changed files and make a commit.
 
     $ git add style.css
     $ git commit -m "Helvetica is a more appropriate font"
+    [headings-color 2ea5e8e] Helvetica is a more appropriate font
+     1 file changed, 1 insertion(+), 1 deletion(-)
 
 Again just like before, we push the `headings-color` branch to our remote
 repository.
 
     $ git push
-    TODO: output of git push
+    Username for 'https://github.com': git-learner
+    Password for 'https://git-learner@github.com':
+    Counting objects: 7, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 323 bytes | 0 bytes/s, done.
+    Total 3 (delta 2), reused 0 (delta 0)
+    To https://github.com/git-learner/fluffytron.git
+       e0b326d..2ea5e8e  headings-color -> headings-color
 
 This is exactly what we have done for our first commit. The only difference
 is that now we do not need to issue a new pull request. The original pull
@@ -278,13 +319,14 @@ We follow the GitHub suggestion to delete the branch...
 
 TODO: image delete branch in GitHub
 
-...then we remove it from our repository and switch back to the master
-branch.
+...then we switch back to the master branch and remove the
+`headings-color` branch from our repository.
 
-    $ git branch -D headings-color
-    TODO: output of git branch -D
     $ git checkout master
-    TODO: output of checkout master
+    Switched to branch 'master'
+    Your branch is up-to-date with 'origin/master'.
+    $ git branch -D headings-color
+    Deleted branch headings-color (was 2ea5e8e).
 
 We proceed then merging back the main repository into our repository.
 We will use a particular kind of merge called "fast-forward only".
@@ -292,8 +334,20 @@ We will use a particular kind of merge called "fast-forward only".
 to be completely automatic because we expect the integrator to take care
 of all the intricacies of the git merging process.
 
-    $ git pull --ff-only gioele/master
-    TODO: output of git pull --ff-only
+    $ git pull --ff-only gioele master
+    remote: Counting objects: 5, done.
+    remote: Compressing objects: 100% (1/1), done.
+    remote: Total 3 (delta 2), reused 3 (delta 2)
+    Unpacking objects: 100% (3/3), done.
+    From https://github.com/gioele/fluffytron
+     * branch            master     -> FETCH_HEAD
+       f6661f5..6f94f76  master     -> gioele/master
+    Updating f6661f5..6f94f76
+    Fast-forward
+     fluffytron.js | 2 +-
+     style.css | 2 ++
+     2 file changed, 3 insertion(+), 1 deletion(-)
+
 
 If anything goes wrong and the fast-forward merge cannot be done, you
 should tell the maintainer: either they did something wrong (they will fix
@@ -303,7 +357,15 @@ Final step: publishing the updated state of our repository to show
 everybody that we are up to date with the main repository.
 
     $ git push
-    TODO: output of final git push
+    Username for 'https://github.com': git-learner
+    Password for 'https://git-learner@github.com':
+    Counting objects: 13, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (10/10), done.
+    Writing objects: 100% (10/10), 1.15 KiB | 0 bytes/s, done.
+    Total 10 (delta 6), reused 0 (delta 0)
+    To https://github.com/git-learner/fluffytron.git
+       f6661f5..6f94f76  master -> master
 
 We are done. Next time we want to submit a change we can skip all the
 preparatory steps and start directly with the update of our master branch
