@@ -33,4 +33,8 @@ span.cmdline span.prompt {
 	color: rgb(200,200,200);
 }
 
+a[href^="http"] {
+	font-family: monospace;
+}
+
 /* This is free software released into the public domain (CC0 license). */

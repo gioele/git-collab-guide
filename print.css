@@ -23,11 +23,16 @@
 	a {
 		text-decoration: none;
 		color: black;
-		font-family: monospace;
 		word-wrap: break-word;
 	}
 
 	h2 {
 		page-break-before: always;
 	}
+
+	h2#the-steps {
+		page-break-before: auto;
+	}
 }
+
+/* This is free software released into the public domain (CC0 license). */
