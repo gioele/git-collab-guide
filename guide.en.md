@@ -36,14 +36,20 @@ To fork the main repository we use the GitHub interface.
 
 TODO: images of the forking process
 
-We just created a fork of the original repository on the GitHub website.
-To do any modification we need to clone our own repository on our computer.
+With this procedure we told GitHub to copy the original `fluffytron`
+repository from Gioele's workspace to our workspace. Now we have
+our own `fluffytron` repository available at <https://github.com/git-learner/fluffytron>.
 
-    $ git clone https://github.com/gioele/fluffytron.git
+To do any modification we need to clone this new repository onto our computer.
 
-We just created a local repository of our own repository. (It is slightly
-confusing, isn't it? It will be clearer later.) Let's see what we have
-now in our computer.
+    $ git clone https://github.com/git-learner/fluffytron.git
+
+Git has now downloaded a copy of our own repository in a directory of our
+computer. In git terms we just cloned our remote repository into our
+local repository (It is slightly confusing, isn't it? It will be clearer
+later.)
+
+Let's see what is inside this newly created directory.
 
 TODO: image directory contents
 
