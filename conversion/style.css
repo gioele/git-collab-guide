@@ -12,4 +12,16 @@ h1, h2, h3 {
         hyphens: none;
 }
 
+pre {
+	color: rgb(200,200,200);
+	background-color: black;
+
+	padding: 1em;
+}
+
+span.cmdline {
+	color: white;
+	font-weight: bold;
+}
+
 /* This is free software released into the public domain (CC0 license). */

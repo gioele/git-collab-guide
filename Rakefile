@@ -11,8 +11,11 @@ task :guide_en => STYLES.map { |path| "#{SITE_DIR}/#{path}" }
 directory SITE_DIR
 
 file "#{SITE_DIR}/guide.en.html" => SITE_DIR
+file "#{SITE_DIR}/guide.en.html" => 'guide.en.md'
 file "#{SITE_DIR}/guide.en.html" => 'conversion/layout.html.erb'
 file "#{SITE_DIR}/guide.en.html" do |file|
+	puts "kramdown #{file.name}"
+
 	require 'kramdown'
 
 	content = File.open('guide.en.md').read
@@ -22,9 +25,10 @@ file "#{SITE_DIR}/guide.en.html" do |file|
 
 	doc = Kramdown::Document.new(content, options)
 
-	File.open(file.name, 'w') { |f| f << doc.to_html }
+	converted = doc.to_html
+	converted.gsub!(/(\$ .+)$/, '<span class="cmdline">\1</span>')
 
-	puts "kramdown #{file.name}"
+	File.open(file.name, 'w') { |f| f << converted }
 end
 
 STYLES.each do |path|
