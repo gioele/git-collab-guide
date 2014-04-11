@@ -4,7 +4,7 @@
 		<meta charset='utf-8'/>
 		<link rel='stylesheet' type='text/css' href='typeplate.css'/>
 		<link rel='stylesheet' type='text/css' href='style.css'/>
-		<link rel='stylesheet' type='text/css' href='print.css'/>
+		<link rel='stylesheet' type='text/css' href='print.css' media='print'/>
 		<meta name="generator" content="kramdown 1.3.3" />
 		<title>Git collaboration guide</title>
 	</head>
@@ -14,8 +14,8 @@
 <p>There are many projects that are developed using git. However, many people
 do not contribute to these projects because of git and its reputation as a
 difficult tool. To be honest, git is a difficult tool, but if one focuses
-only on its main features, they can learn git and be productive with it
-in few minutes.</p>
+only on its main features, it is possible to learn git and be productive
+with it in few minutes.</p>
 
 <p>This guide will show you how to use git to contribute to a fictitious
 <code>fluffytron</code> project. We will set up our own copy of the <code>fluffytron</code>
@@ -44,15 +44,30 @@ the main <code>fluffytron</code> repository.</p>
 
 <p>TODO: images of the forking process</p>
 
-<p>We just created a fork of the original repository on the GitHub website.
-To do any modification we need to clone our own repository on our computer.</p>
+<p>With this procedure we told GitHub to copy the original <code>fluffytron</code>
+repository from Gioele’s workspace to our workspace. Now we have
+our own <code>fluffytron</code> repository available at <a href="https://github.com/git-learner/fluffytron">https://github.com/git-learner/fluffytron</a>.</p>
 
-<pre><code><span class="cmdline">$ git clone https://github.com/gioele/fluffytron.git</span>
+<p>To do any modification we need to clone this new repository onto our computer.</p>
+
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git clone https://github.com/git-learner/fluffytron.git</span>
+Cloning into 'fluffytron'...
+remote: Counting objects: 17, done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 17 (delta 4), reused 17 (delta 4)
+Unpacking objects: 100% (17/17), done.
+Checking connectivity... done.
 </code></pre>
 
-<p>We just created a local repository of our own repository. (It is slightly
-confusing, isn’t it? It will be clearer later.) Let’s see what we have
-now in our computer.</p>
+<p>Git has now downloaded a copy of our own repository in a directory of our
+computer. In git terms we just cloned our remote repository into our
+local repository (It is slightly confusing, isn’t it? It will be clearer
+later.)</p>
+
+<p>Let’s move into this newly created directory and see what is inside it.</p>
+
+<pre><code><span class="cmdline"><span class="prompt">$ </span>cd fluffytron</span>
+</code></pre>
 
 <p>TODO: image directory contents</p>
 
@@ -87,8 +102,9 @@ repository when we are ready to publish them. The address of our remote
 repository is stored in the repository configuration files as the “remote
 location” called <code>origin</code> or, in git terms, as the <code>origin</code> remote.</p>
 
-<pre><code><span class="cmdline">$ git remote -v</span>
-TODO: output of "git remote -v"
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git remote -v</span>
+origin  https://github.com/git-learner/fluffytron.git (fetch)
+origin  https://github.com/git-learner/fluffytron.git (push)
 </code></pre>
 
 <p>What we need to do now is to link our repository to the main <code>fluffytron</code>
@@ -96,8 +112,10 @@ repository. We do this adding a new remote. Usually this remote is named
 <code>upstream</code> or after the person or the organization that manages it. In
 this case we will try to be less formal and will call it “gioele”.</p>
 
-<pre><code><span class="cmdline">$ git remote add gioele https://github.com/gioele/fluffytron.git</span>
-TODO: output of "git remote add gioele"
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git remote add gioele https://github.com/gioele/fluffytron.git</span>
+<span class="cmdline"><span class="prompt">$ </span>git fetch gioele</span>
+From https://github.com/gioele/fluffytron
+ * [new branch]      master     -&gt; gioele/master
 </code></pre>
 
 <p>We are now done with the setup and we can start making changes and ask
@@ -128,14 +146,15 @@ change something. In our case we want to change the color of the headings
 of the <code>fluffytron</code> project; we create a new branch called <code>headings-color</code>
 based on the <code>master</code> branch.</p>
 
-<pre><code><span class="cmdline">$ git branch headings-color</span>
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git branch headings-color</span>
 </code></pre>
 
 <p>Creating a branch is not enough, we also have to switch to it, so that
 our modifications will be recorded in it instead of in the master branch.
 Switching to a branch is called doing a “checkout” of that branch.</p>
 
-<pre><code><span class="cmdline">$ git checkout headings-color</span>
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git checkout headings-color</span>
+Switched to branch 'headings-color'
 </code></pre>
 
 <p>Please note that we did create a new branch now, but that branch exists
@@ -143,7 +162,13 @@ only in our local repository. We need to let the world know we did create
 it. To do so, we need to publish the new branch on our remote repository.
 In git publishing is done via “push” operations.</p>
 
-<pre><code><span class="cmdline">$ git push --set-upstream origin headings-color</span>
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git push --set-upstream origin headings-color</span>
+Username for 'https://github.com': git-learner
+Password for 'https://git-learner@github.com':
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/git-learner/fluffytron.git
+ * [new branch]      headings-color -&gt; headings-color
+Branch headings-color set up to track remote branch headings-color from origin.
 </code></pre>
 
 <p>We are now ready to make our first change and publish it.</p>
@@ -164,9 +189,11 @@ these changes. For such a simple modification we will use just the short
 title “Make headings red and funny”.</p>
 
 <pre><code># first we tell git that we changed some files
-<span class="cmdline">$ git add style.css</span>
+<span class="cmdline"><span class="prompt">$ </span>git add style.css</span>
 # then we commit the changed files
-<span class="cmdline">$ git commit -m "Make the headings red and funny"</span>
+<span class="cmdline"><span class="prompt">$ </span>git commit -m "Make the headings red and funny"</span>
+[headings-color e0b326d] Make the headings red and funny
+ 1 file changed, 2 insertions(+)
 </code></pre>
 
 <h2 id="publishing-our-change">Publishing our change</h2>
@@ -183,7 +210,16 @@ just like we did to publish our new <code>headings-color</code> branch. Please n
 that are not the single commits that are pushed, but complete branches.
 Thus, what we have to do now is to publish our <code>headings-color</code> branch.</p>
 
-<pre><code><span class="cmdline">$ git push</span>
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git push</span>
+Username for 'https://github.com': git-learner
+Password for 'https://git-learner@github.com':
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 344 bytes | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To https://github.com/git-learner/fluffytron.git
+   f6661f5..e574d48  headings-color -&gt; headings-color
 </code></pre>
 
 <p>Please note that git knows where to publish this branch (in the branch
@@ -229,7 +265,9 @@ What don’t you do to please these maintainers…</p>
 still in the <code>headings-color</code> branch. (In the meantime we may have worked
 on something else in other branches.)</p>
 
-<pre><code><span class="cmdline">$ git checkout headings-color</span>
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git checkout headings-color</span>
+Already on 'headings-color'
+Your branch is up-to-date with 'origin/headings-color'.
 </code></pre>
 
 <p>Now we go forth and make the adjustments that have been requested.</p>
@@ -238,15 +276,25 @@ on something else in other branches.)</p>
 
 <p>Just like before, we tell git about the changed files and make a commit.</p>
 
-<pre><code><span class="cmdline">$ git add style.css</span>
-<span class="cmdline">$ git commit -m "Helvetica is a more appropriate font"</span>
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git add style.css</span>
+<span class="cmdline"><span class="prompt">$ </span>git commit -m "Helvetica is a more appropriate font"</span>
+[headings-color 2ea5e8e] Helvetica is a more appropriate font
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 </code></pre>
 
 <p>Again just like before, we push the <code>headings-color</code> branch to our remote
 repository.</p>
 
-<pre><code><span class="cmdline">$ git push</span>
-TODO: output of git push
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git push</span>
+Username for 'https://github.com': git-learner
+Password for 'https://git-learner@github.com':
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 323 bytes | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To https://github.com/git-learner/fluffytron.git
+   e0b326d..2ea5e8e  headings-color -&gt; headings-color
 </code></pre>
 
 <p>This is exactly what we have done for our first commit. The only difference
@@ -277,13 +325,14 @@ that has been integrated in the main repository.</p>
 
 <p>TODO: image delete branch in GitHub</p>
 
-<p>…then we remove it from our repository and switch back to the master
-branch.</p>
+<p>…then we switch back to the master branch and remove the
+<code>headings-color</code> branch from our repository.</p>
 
-<pre><code><span class="cmdline">$ git branch -D headings-color</span>
-TODO: output of git branch -D
-<span class="cmdline">$ git checkout master</span>
-TODO: output of checkout master
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git checkout master</span>
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+<span class="cmdline"><span class="prompt">$ </span>git branch -D headings-color</span>
+Deleted branch headings-color (was 2ea5e8e).
 </code></pre>
 
 <p>We proceed then merging back the main repository into our repository.
@@ -292,8 +341,19 @@ We will use a particular kind of merge called “fast-forward only”.
 to be completely automatic because we expect the integrator to take care
 of all the intricacies of the git merging process.</p>
 
-<pre><code><span class="cmdline">$ git pull --ff-only gioele/master</span>
-TODO: output of git pull --ff-only
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git pull --ff-only gioele master</span>
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2)
+Unpacking objects: 100% (3/3), done.
+From https://github.com/gioele/fluffytron
+ * branch            master     -&gt; FETCH_HEAD
+   f6661f5..6f94f76  master     -&gt; gioele/master
+Updating f6661f5..6f94f76
+Fast-forward
+ fluffytron.js | 2 +-
+ style.css | 2 ++
+ 2 file changed, 3 insertion(+), 1 deletion(-)
 </code></pre>
 
 <p>If anything goes wrong and the fast-forward merge cannot be done, you
@@ -303,8 +363,16 @@ that) or you did mess somehow (they will tell you how to sort things out).</p>
 <p>Final step: publishing the updated state of our repository to show
 everybody that we are up to date with the main repository.</p>
 
-<pre><code><span class="cmdline">$ git push</span>
-TODO: output of final git push
+<pre><code><span class="cmdline"><span class="prompt">$ </span>git push</span>
+Username for 'https://github.com': git-learner
+Password for 'https://git-learner@github.com':
+Counting objects: 13, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 1.15 KiB | 0 bytes/s, done.
+Total 10 (delta 6), reused 0 (delta 0)
+To https://github.com/git-learner/fluffytron.git
+   f6661f5..6f94f76  master -&gt; master
 </code></pre>
 
 <p>We are done. Next time we want to submit a change we can skip all the
