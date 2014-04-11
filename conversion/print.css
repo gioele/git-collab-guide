@@ -1,0 +1,33 @@
+@media print {
+	body {
+		font-size: 80%;
+		line-height: 1.3;
+	}
+
+	@page :top {
+		margin: 1.2cm;
+	}
+
+	@page :bottom {
+		margin: 1.8cm;
+	}
+
+	@page :left {
+		margin: 0.8cm;
+	}
+
+	@page :right {
+		margin: 0.8cm;
+	}
+
+	a {
+		text-decoration: none;
+		color: black;
+		font-family: monospace;
+		word-wrap: break-word;
+	}
+
+	h2 {
+		page-break-before: always;
+	}
+}
