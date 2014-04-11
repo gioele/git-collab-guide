@@ -1,0 +1,15 @@
+body {
+	margin-left: auto;
+	margin-right: auto;
+	width: 45em;
+}
+
+h1, h2, h3 {
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        -o-hyphens: none;
+        hyphens: none;
+}
+
+/* This is free software released into the public domain (CC0 license). */
