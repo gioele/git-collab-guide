@@ -26,10 +26,6 @@
 		word-wrap: break-word;
 	}
 
-	a[href^="http"] {
-		font-family: monospace;
-	}
-
 	h2 {
 		page-break-before: always;
 	}
