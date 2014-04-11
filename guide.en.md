@@ -4,8 +4,8 @@ Git collaboration guide
 There are many projects that are developed using git. However, many people
 do not contribute to these projects because of git and its reputation as a
 difficult tool. To be honest, git is a difficult tool, but if one focuses
-only on its main features, they can learn git and be productive with it
-in few minutes.
+only on its main features, it is possible to learn git and be productive
+with it in few minutes.
 
 This guide will show you how to use git to contribute to a fictitious
 `fluffytron` project. We will set up our own copy of the `fluffytron`
