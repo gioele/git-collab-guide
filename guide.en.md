@@ -117,12 +117,52 @@ We are now done with the setup and we can start making changes and ask
 to have them integrated into the `fluffytron` project.
 
 
-We must be sure to be working with up-to-date files
----------------------------------------------------
+Update to align to the main repository
+--------------------------------------
 
-TODO: discuss pull --ff-only, useful to say "start here when you need to make a change"
+Conceptually, the first thing to do before doing any change is to align
+our repository to the main repository, to be certain of using the
+current versions of the files.
 
-TODO: review the final step, it contains basically the same instructions
+In git one updates a repository by merging it with its master repository
+using the "pull" operation.
+We will use a particular kind of merge process called "fast-forward only".
+"Fast-forward only" in this context means that we want the merge process
+to be completely automatic because we expect the integrator to take care
+of all the intricacies of the git merging process.
+
+    $ git pull --ff-only gioele master
+    remote: Counting objects: 5, done.
+    remote: Compressing objects: 100% (1/1), done.
+    remote: Total 3 (delta 2), reused 3 (delta 2)
+    Unpacking objects: 100% (3/3), done.
+    From https://github.com/gioele/fluffytron
+     * branch            master     -> FETCH_HEAD
+       f6661f5..6f94f76  master     -> gioele/master
+    Updating f6661f5..6f94f76
+    Fast-forward
+     fluffytron.js | 2 +-
+     style.css | 2 ++
+     2 file changed, 3 insertion(+), 1 deletion(-)
+
+If anything goes wrong and the fast-forward merge cannot be done, you
+should tell the maintainer: either they did something wrong (they will fix
+that) or you did mess somehow (they will tell you how to sort things out).
+
+Once the merge has been done, we publish the updated state of our
+repository to show everybody that we are up to date with the main
+repository.
+
+    $ git push
+    Username for 'https://github.com': git-learner
+    Password for 'https://git-learner@github.com':
+    Counting objects: 13, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (10/10), done.
+    Writing objects: 100% (10/10), 1.15 KiB | 0 bytes/s, done.
+    Total 10 (delta 6), reused 0 (delta 0)
+    To https://github.com/git-learner/fluffytron.git
+       f6661f5..6f94f76  master -> master
 
 
 A separate branch for our changes
@@ -335,44 +375,9 @@ TODO: image delete branch in GitHub
     $ git branch -D headings-color
     Deleted branch headings-color (was 2ea5e8e).
 
-We proceed then merging back the main repository into our repository.
-We will use a particular kind of merge called "fast-forward only".
-"Fast-forward only" in this context means that we want the merge process
-to be completely automatic because we expect the integrator to take care
-of all the intricacies of the git merging process.
-
-    $ git pull --ff-only gioele master
-    remote: Counting objects: 5, done.
-    remote: Compressing objects: 100% (1/1), done.
-    remote: Total 3 (delta 2), reused 3 (delta 2)
-    Unpacking objects: 100% (3/3), done.
-    From https://github.com/gioele/fluffytron
-     * branch            master     -> FETCH_HEAD
-       f6661f5..6f94f76  master     -> gioele/master
-    Updating f6661f5..6f94f76
-    Fast-forward
-     fluffytron.js | 2 +-
-     style.css | 2 ++
-     2 file changed, 3 insertion(+), 1 deletion(-)
-
-
-If anything goes wrong and the fast-forward merge cannot be done, you
-should tell the maintainer: either they did something wrong (they will fix
-that) or you did mess somehow (they will tell you how to sort things out).
-
-Final step: publishing the updated state of our repository to show
-everybody that we are up to date with the main repository.
-
-    $ git push
-    Username for 'https://github.com': git-learner
-    Password for 'https://git-learner@github.com':
-    Counting objects: 13, done.
-    Delta compression using up to 4 threads.
-    Compressing objects: 100% (10/10), done.
-    Writing objects: 100% (10/10), 1.15 KiB | 0 bytes/s, done.
-    Total 10 (delta 6), reused 0 (delta 0)
-    To https://github.com/git-learner/fluffytron.git
-       f6661f5..6f94f76  master -> master
+It is a good practice to also update our repository as explained in
+"Update to align to the main repository".
+This reduces the chances of having problems during future updates.
 
 We are done. Next time we want to submit a change we can skip all the
 preparatory steps and start directly with the update of our master branch
