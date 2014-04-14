@@ -168,8 +168,8 @@ repository.
 A separate branch for our changes
 ---------------------------------
 
-Before we start making changes, we need to make sure we do not collide
-with or pollute other people's work while we work on our modifications.
+Before we start making changes, we need to make sure that our modifications
+will not collide or pollute other people's work.
 In git this is done using separate branches.
 
 A git branch is a copy of the working directory. You can think of
