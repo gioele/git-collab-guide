@@ -39,4 +39,20 @@ a[href^="http"] {
 	font-family: monospace;
 }
 
+/* Automatic chapter numbering */
+
+body {
+	counter-reset: chapter;
+}
+
+h2:before {
+	counter-increment: chapter;
+	content: counter(chapter) ".\0000a0";
+}
+
+h2.no_toc:before {
+	counter-increment: none;
+	content: none;
+}
+
 /* This is free software released into the public domain (CC0 license). */
