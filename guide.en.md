@@ -310,7 +310,8 @@ but ask for some adjustments to be done.
 In our case, the integrator does not fancy our use of Comic Sans: too
 childish.
 
-TODO: image of GitHub comment on comic sans
+1. ![Comment to our pull request on GitHub, pull request page](images/github/comment1.png)
+2. ![Comment to our pull request on GitHub, line notes](images/github/comment2.png)
 
 So we go and change that to a more boring but more appropriate Helvetica.
 What don't you do to please these maintainers...
