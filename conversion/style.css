@@ -35,12 +35,11 @@ span.cmdline span.prompt {
 	color: rgb(200,200,200);
 }
 
-a[href^="http"] {
+a[href^="https"] {
 	font-family: monospace;
 }
 
 a[href^="http://git-scm.com"] {
-	font-family: inherit;
 	color: inherit;
 	text-decoration: inherit;
 }
