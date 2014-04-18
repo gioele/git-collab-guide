@@ -220,8 +220,8 @@ We are now ready to make our first change and publish it.
 Our first commit
 ----------------
 
-We can now change the main color of the headings to something more cool,
-from black to red and with the font Comic Sans.
+We can now change the color of the headings to something more cool,
+from black to red, and we can also change the font to Comic Sans.
 
 TODO: picture CSS changes
 
@@ -230,7 +230,7 @@ recoded in the project history. To do so we need to "commit" our change.
 To commit means to tell git that we did change some files and that we
 want that changes recorded, accompanied by a short title that describes
 the changes and an optional longer message that explains why we made
-these changes. For such a simple modification we will use just the short
+these changes. For such a simple modification we will use only the short
 title "Make headings red and funny".
 
     # first we tell git that we changed some files
@@ -244,17 +244,18 @@ title "Make headings red and funny".
 Publishing our change
 ---------------------
 
-The commit we just did is sitting in the repository in our computer. Our
+The commit we just created is sitting in the repository in our computer. Our
 remote repository does not know about it, let alone the maintainers of
 `fluffytron`.
 
-So, it is time to publish the commit with the change and then request its
+So, it is time to publish our commit and then request its
 integration in the main project.
 
 The git way to publish a commit is pushing it to the remote repository,
-just like we did to publish our new `headings-color` branch. Please note
-that are not the single commits that are pushed, but complete branches.
-Thus, what we have to do now is to publish our `headings-color` branch.
+exactly the same operation we did to to publish our new `headings-color`
+branch. Please note that git cannot push single commits, only complete
+branches. Thus, what we have to do now is to publish the new state of
+our `headings-color` branch.
 
     $ git push
     Username for 'https://github.com': git-learner
@@ -288,10 +289,11 @@ changes; we will resort to using GitHub "pull requests".
 
 TODO: image of GitHub pull request process
 
-What we just did created a new issue in the issue tracker of the
-`fluffytron` project that says that we have a branch called `headings-color`
-and we would like to have it integrated into the main repository. GitHub
-has also sent some email(s) to the `fluffytron` maintainers to let them
+When we create a pull request, what happens is that GitHub creates for
+us a new issue in the issue tracker of the `fluffytron` project. That
+issue says that we have a branch called `headings-color`
+and we would like to have it integrated into the main repository. In addition,
+GitHub also sends some email(s) to the `fluffytron` maintainers to let them
 know that there is a new pull request waiting to be integrated.
 
 
@@ -301,7 +303,6 @@ Making adjustments to a published branch
 In these trying times, not every pull request gets accepted at the first
 attempt. Sometimes the maintainers like most of the changes we submitted
 but ask for some adjustments to be done.
-im
 In our case, the integrator does not fancy our use of Comic Sans: too
 childish.
 
@@ -312,13 +313,13 @@ What don't you do to please these maintainers...
 
 Before making any adjustment to our changes, we make sure that we are
 still in the `headings-color` branch. (In the meantime we may have worked
-on something else in other branches.)
+on something else, so we could have switched to other branches.)
 
     $ git checkout headings-color
     Already on 'headings-color'
     Your branch is up-to-date with 'origin/headings-color'.
 
-Now we go forth and make the adjustments that have been requested.
+Now we can proceed and make the adjustments that have been requested.
 
 TODO: illustration of CSS changed to Helvetica
 
