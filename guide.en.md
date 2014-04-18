@@ -356,7 +356,9 @@ been updated to contain both the old and the new commit. The final result
 is a combination of the two commits, as can be seen in the GitHub page for
 the pull request.
 
-TODO: image of the updated pull request
+1. ![Updated pull request on GitHub, new message](images/github/pr-update1.png)
+2. ![Updated pull request on GitHub, new commit added](images/github/pr-update2.png)
+3. ![Updated pull request on GitHub, changes in files](images/github/pr-update3.png)
 
 
 After the change has been accepted
