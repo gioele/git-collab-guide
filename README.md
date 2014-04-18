@@ -4,7 +4,7 @@ Git collaboration guide
 This is a simple tutorial for beginners on how to use git to contribute
 to an existing project.
 
-The guide is available at <http://gioele.github.io/git-collab-guide>.
+**The guide can be read online at <http://svario.it/git-collab-guide/read>.**
 
 If you find any mistake or typo, well, please fork, modify and make a pull
 request; you now know how to do that, don't you? ;)
