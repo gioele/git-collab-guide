@@ -39,6 +39,12 @@ a[href^="http"] {
 	font-family: monospace;
 }
 
+a[href^="http://git-scm.com"] {
+	font-family: inherit;
+	color: inherit;
+	text-decoration: inherit;
+}
+
 /* Automatic chapter numbering */
 
 body {

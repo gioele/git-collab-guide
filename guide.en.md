@@ -12,7 +12,12 @@ This guide will show you how to use git to contribute to a fictitious
 repository then make some changes and see these modifications being
 integrated back into the `fluffytron` project.
 
-TODO: disclaimer, this is just one way to use git
+*NOTE: this is a very opinated guide. It shows only one of the many
+ways in which git can be used to collaborate on a project, does not use
+100%-correct terminology and ignores many low-level details. Yet it
+should provide a useful, down-to-earth, step-by-step guide for beginners.
+More advanced users should read instead the [free ProGit book](http://git-scm.com/book).*
+
 
 The steps
 ---------
