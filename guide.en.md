@@ -277,7 +277,10 @@ location from when we created and pushed the branch at the beginning.
 We can have a look at the GitHub page and see that the changes are
 indeed there. Nice.
 
-TODO: image with GitHub log.
+1. ![Branch log on GitHub, overview](images/github/post-push1.png)
+2. ![Branch log on GitHub, branch selection](images/github/post-push2.png)
+3. ![Branch log on GitHub, commit tab](images/github/post-push3.png)
+4. ![Branch log on GitHub, list of commits](images/github/post-push4.png)
 
 
 Let's request the integration of our changes
