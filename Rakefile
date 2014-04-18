@@ -2,13 +2,17 @@ require 'rake/clean'
 
 SITE_DIR = 'site'
 STYLES = ['print.css', 'style.css', 'typeplate.css']
-GITHUB_IMAGES = ['fork1.png', 'fork2.png', 'fork3.png'].map { |path| "github/" + path }
+GITHUB_IMAGES = ['fork1.png', 'fork2.png', 'fork3.png', 'pr1.png', 'pr2.png', 'pr3.png'].map { |path| "github/" + path }
 TORTOISE_IMAGES = []
 IMAGES = GITHUB_IMAGES + TORTOISE_IMAGES
 HIGHLIGHTS = {
 	'github/fork1.png' => '380,170 120,40 0,360',
 	'github/fork2.png' => '935,73 40,25 0,360',
 	'github/fork3.png' => '140,80 120,40 0,360',
+
+	'github/pr1.png' => '700,280 115,35 0,360',
+	'github/pr2.png' => '200,330 250,200 0,360',
+	'github/pr3.png' => '840,390 100,35 0,360',
 }
 
 task :default => :guide_en

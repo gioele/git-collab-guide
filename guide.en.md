@@ -289,7 +289,9 @@ integration in the main repository.
 git doesn't have a standard way to request the integration of external
 changes; we will resort to using GitHub "pull requests".
 
-TODO: image of GitHub pull request process
+![Making a new pull request on GitHub, step 1](images/github/pr1.png)
+![Making a new pull request on GitHub, step 2](images/github/pr2.png)
+![Making a new pull request on GitHub, step 3](images/github/pr3.png)
 
 When we create a pull request, what happens is that GitHub creates for
 us a new issue in the issue tracker of the `fluffytron` project. That
