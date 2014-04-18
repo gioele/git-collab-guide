@@ -2,7 +2,14 @@ require 'rake/clean'
 
 SITE_DIR = 'site'
 STYLES = ['print.css', 'style.css', 'typeplate.css']
-IMAGES = []
+GITHUB_IMAGES = ['fork1.png', 'fork2.png', 'fork3.png'].map { |path| "github/" + path }
+TORTOISE_IMAGES = []
+IMAGES = GITHUB_IMAGES + TORTOISE_IMAGES
+HIGHLIGHTS = {
+	'github/fork1.png' => '380,170 120,40 0,360',
+	'github/fork2.png' => '935,73 40,25 0,360',
+	'github/fork3.png' => '140,80 120,40 0,360',
+}
 
 task :default => :guide_en
 
@@ -12,6 +19,7 @@ task :guide_en => IMAGES.map { |path| "#{SITE_DIR}/images/#{path}" }
 
 directory SITE_DIR
 directory SITE_DIR + "/images"
+directory SITE_DIR + "/images/github"
 
 file "#{SITE_DIR}/guide.en.html" => SITE_DIR
 file "#{SITE_DIR}/guide.en.html" => 'guide.en.md'
@@ -45,13 +53,30 @@ STYLES.each do |path|
 	end
 end
 
-IMAGES.each do |path|
+GITHUB_IMAGES.each do |path|
 	source_path = "images/#{path}"
 
-	file "#{SITE_DIR}/images/#{path}" => SITE_DIR + "/images"
+	file "#{SITE_DIR}/images/#{path}" => SITE_DIR + "/images/github"
 	file "#{SITE_DIR}/images/#{path}" => source_path
 	file "#{SITE_DIR}/images/#{path}" do |file|
-		cp source_path, file.name
+		puts "crop #{file.name}"
+
+		crop_factor = '1000x800+262+0'
+		system 'convert', source_path,
+		       '-crop', crop_factor,
+		       '+repage',
+		       file.name
+
+		ellipse_params = HIGHLIGHTS[file.name.split('/').last(2).join('/')]
+		if ellipse_params.nil?
+			next
+		end
+
+		system 'convert', file.name,
+		       '-stroke', 'red', '-strokewidth', '4',
+		       '-fill', 'none',
+		       '-draw', "ellipse #{ellipse_params}",
+		       file.name
 	end
 end
 

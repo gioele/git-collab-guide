@@ -48,7 +48,9 @@ the main `fluffytron` repository.
 
 To fork the main repository we use the GitHub interface.
 
-TODO: images of the forking process
+![Forking on GitHub, step 1](images/github/fork1.png)
+![Forking on GitHub, step 2](images/github/fork2.png)
+![Forking on GitHub, step 3](images/github/fork3.png)
 
 With this procedure we told GitHub to copy the original `fluffytron`
 repository from Gioele's workspace to our workspace. Now we have
