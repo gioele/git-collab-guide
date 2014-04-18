@@ -35,8 +35,45 @@ span.cmdline span.prompt {
 	color: rgb(200,200,200);
 }
 
-a[href^="http"] {
+a[href^="https"] {
 	font-family: monospace;
+}
+
+a[href^="http://git-scm.com"] {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+
+/* images */
+
+img {
+	width: 95%;
+	border: thin solid LightGray;
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+
+/* Automatic chapter numbering */
+
+body {
+	counter-reset: chapter;
+}
+
+h2:before {
+	counter-increment: chapter;
+	content: counter(chapter) ".\0000a0";
+}
+
+h2.no_toc:before {
+	counter-increment: none;
+	content: none;
 }
 
 /* This is free software released into the public domain (CC0 license). */

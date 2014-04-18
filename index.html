@@ -11,6 +11,8 @@
 	<body>
 		<h1 id="git-collaboration-guide">Git collaboration guide</h1>
 
+<p>By <a href="http://svario.it/gioele">Gioele Barabucci</a>; additional information at <a href="http://svario.it/git-collab-guide">http://svario.it/git-collab-guide</a>.</p>
+
 <p>There are many projects that are developed using git. However, many people
 do not contribute to these projects because of git and its reputation as a
 difficult tool. To be honest, git is a difficult tool, but if one focuses
@@ -22,7 +24,11 @@ with it in few minutes.</p>
 repository then make some changes and see these modifications being
 integrated back into the <code>fluffytron</code> project.</p>
 
-<p>TODO: disclaimer, this is just one way to use git</p>
+<p><em>NOTE: this is a very opinated guide. It shows only one of the many
+ways in which git can be used to collaborate on a project, does not use
+100%-correct terminology and ignores many low-level details. Yet it
+should provide a useful, down-to-earth, step-by-step guide for beginners.
+More advanced users should read instead the <a href="http://git-scm.com/book">free ProGit book</a>.</em></p>
 
 <h2 class="no_toc" id="the-steps">The steps</h2>
 
@@ -56,7 +62,11 @@ the main <code>fluffytron</code> repository.</p>
 
 <p>To fork the main repository we use the GitHub interface.</p>
 
-<p>TODO: images of the forking process</p>
+<ol>
+  <li><img src="images/github/fork1.png" alt="Forking on GitHub, step 1" /></li>
+  <li><img src="images/github/fork2.png" alt="Forking on GitHub, step 2" /></li>
+  <li><img src="images/github/fork3.png" alt="Forking on GitHub, step 3" /></li>
+</ol>
 
 <p>With this procedure we told GitHub to copy the original <code>fluffytron</code>
 repository from Gioele’s workspace to our workspace. Now we have
@@ -185,8 +195,8 @@ To https://github.com/git-learner/fluffytron.git
 
 <h2 id="a-separate-branch-for-our-changes">A separate branch for our changes</h2>
 
-<p>Before we start making changes, we need to make sure we do not collide
-with or pollute other people’s work while we work on our modifications.
+<p>Before we start making changes, we need to make sure that our modifications
+will not collide or pollute other people’s work.
 In git this is done using separate branches.</p>
 
 <p>A git branch is a copy of the working directory. You can think of
@@ -231,8 +241,8 @@ Branch headings-color set up to track remote branch headings-color from origin.
 
 <h2 id="our-first-commit">Our first commit</h2>
 
-<p>We can now change the main color of the headings to something more cool,
-from black to red and with the font Comic Sans.</p>
+<p>We can now change the color of the headings to something more cool,
+from black to red, and we can also change the font to Comic Sans.</p>
 
 <p>TODO: picture CSS changes</p>
 
@@ -241,7 +251,7 @@ recoded in the project history. To do so we need to “commit” our change.
 To commit means to tell git that we did change some files and that we
 want that changes recorded, accompanied by a short title that describes
 the changes and an optional longer message that explains why we made
-these changes. For such a simple modification we will use just the short
+these changes. For such a simple modification we will use only the short
 title “Make headings red and funny”.</p>
 
 <pre><code># first we tell git that we changed some files
@@ -254,17 +264,18 @@ title “Make headings red and funny”.</p>
 
 <h2 id="publishing-our-change">Publishing our change</h2>
 
-<p>The commit we just did is sitting in the repository in our computer. Our
+<p>The commit we just created is sitting in the repository in our computer. Our
 remote repository does not know about it, let alone the maintainers of
 <code>fluffytron</code>.</p>
 
-<p>So, it is time to publish the commit with the change and then request its
+<p>So, it is time to publish our commit and then request its
 integration in the main project.</p>
 
 <p>The git way to publish a commit is pushing it to the remote repository,
-just like we did to publish our new <code>headings-color</code> branch. Please note
-that are not the single commits that are pushed, but complete branches.
-Thus, what we have to do now is to publish our <code>headings-color</code> branch.</p>
+exactly the same operation we did to to publish our new <code>headings-color</code>
+branch. Please note that git cannot push single commits, only complete
+branches. Thus, what we have to do now is to publish the new state of
+our <code>headings-color</code> branch.</p>
 
 <pre><code><span class="cmdline"><span class="prompt">$ </span>git push</span>
 Username for 'https://github.com': git-learner
@@ -285,7 +296,12 @@ location from when we created and pushed the branch at the beginning.</p>
 <p>We can have a look at the GitHub page and see that the changes are
 indeed there. Nice.</p>
 
-<p>TODO: image with GitHub log.</p>
+<ol>
+  <li><img src="images/github/post-push1.png" alt="Branch log on GitHub, overview" /></li>
+  <li><img src="images/github/post-push2.png" alt="Branch log on GitHub, branch selection" /></li>
+  <li><img src="images/github/post-push3.png" alt="Branch log on GitHub, commit tab" /></li>
+  <li><img src="images/github/post-push4.png" alt="Branch log on GitHub, list of commits" /></li>
+</ol>
 
 <h2 id="lets-request-the-integration-of-our-changes">Let’s request the integration of our changes</h2>
 
@@ -295,12 +311,17 @@ integration in the main repository.</p>
 <p>git doesn’t have a standard way to request the integration of external
 changes; we will resort to using GitHub “pull requests”.</p>
 
-<p>TODO: image of GitHub pull request process</p>
+<ol>
+  <li><img src="images/github/pr1.png" alt="Making a new pull request on GitHub, step 1" /></li>
+  <li><img src="images/github/pr2.png" alt="Making a new pull request on GitHub, step 2" /></li>
+  <li><img src="images/github/pr3.png" alt="Making a new pull request on GitHub, step 3" /></li>
+</ol>
 
-<p>What we just did created a new issue in the issue tracker of the
-<code>fluffytron</code> project that says that we have a branch called <code>headings-color</code>
-and we would like to have it integrated into the main repository. GitHub
-has also sent some email(s) to the <code>fluffytron</code> maintainers to let them
+<p>When we create a pull request, what happens is that GitHub creates for
+us a new issue in the issue tracker of the <code>fluffytron</code> project. That
+issue says that we have a branch called <code>headings-color</code>
+and we would like to have it integrated into the main repository. In addition,
+GitHub also sends some email(s) to the <code>fluffytron</code> maintainers to let them
 know that there is a new pull request waiting to be integrated.</p>
 
 <h2 id="making-adjustments-to-a-published-branch">Making adjustments to a published branch</h2>
@@ -308,25 +329,27 @@ know that there is a new pull request waiting to be integrated.</p>
 <p>In these trying times, not every pull request gets accepted at the first
 attempt. Sometimes the maintainers like most of the changes we submitted
 but ask for some adjustments to be done.
-im
 In our case, the integrator does not fancy our use of Comic Sans: too
 childish.</p>
 
-<p>TODO: image of GitHub comment on comic sans</p>
+<ol>
+  <li><img src="images/github/comment1.png" alt="Comment to our pull request on GitHub, pull request page" /></li>
+  <li><img src="images/github/comment2.png" alt="Comment to our pull request on GitHub, line notes" /></li>
+</ol>
 
 <p>So we go and change that to a more boring but more appropriate Helvetica.
 What don’t you do to please these maintainers…</p>
 
 <p>Before making any adjustment to our changes, we make sure that we are
 still in the <code>headings-color</code> branch. (In the meantime we may have worked
-on something else in other branches.)</p>
+on something else, so we could have switched to other branches.)</p>
 
 <pre><code><span class="cmdline"><span class="prompt">$ </span>git checkout headings-color</span>
 Already on 'headings-color'
 Your branch is up-to-date with 'origin/headings-color'.
 </code></pre>
 
-<p>Now we go forth and make the adjustments that have been requested.</p>
+<p>Now we can proceed and make the adjustments that have been requested.</p>
 
 <p>TODO: illustration of CSS changed to Helvetica</p>
 
@@ -360,7 +383,11 @@ been updated to contain both the old and the new commit. The final result
 is a combination of the two commits, as can be seen in the GitHub page for
 the pull request.</p>
 
-<p>TODO: image of the updated pull request</p>
+<ol>
+  <li><img src="images/github/pr-update1.png" alt="Updated pull request on GitHub, new message" /></li>
+  <li><img src="images/github/pr-update2.png" alt="Updated pull request on GitHub, new commit added" /></li>
+  <li><img src="images/github/pr-update3.png" alt="Updated pull request on GitHub, changes in files" /></li>
+</ol>
 
 <h2 id="after-the-change-has-been-accepted">After the change has been accepted</h2>
 
@@ -379,7 +406,10 @@ that has been integrated in the main repository.</p>
 
 <p>We follow the GitHub suggestion to delete the branch…</p>
 
-<p>TODO: image delete branch in GitHub</p>
+<ol>
+  <li><img src="images/github/delete-branch1.png" alt="Delete merged branch on GitHub, step 1" /></li>
+  <li><img src="images/github/delete-branch2.png" alt="Delete merged branch on GitHub, result" /></li>
+</ol>
 
 <p>…then we switch back to the master branch and remove the
 <code>headings-color</code> branch from our repository.</p>
