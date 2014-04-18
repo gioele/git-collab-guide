@@ -2,7 +2,7 @@ require 'rake/clean'
 
 SITE_DIR = 'site'
 STYLES = ['print.css', 'style.css', 'typeplate.css']
-GITHUB_IMAGES = ['fork1.png', 'fork2.png', 'fork3.png', 'pr1.png', 'pr2.png', 'pr3.png'].map { |path| "github/" + path }
+GITHUB_IMAGES = %w[fork1 fork2 fork3 pr1 pr2 pr3].map { |path| "github/#{path}.png" }
 TORTOISE_IMAGES = []
 IMAGES = GITHUB_IMAGES + TORTOISE_IMAGES
 HIGHLIGHTS = {
