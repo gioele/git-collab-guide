@@ -379,7 +379,8 @@ that has been integrated in the main repository.
 
 We follow the GitHub suggestion to delete the branch...
 
-TODO: image delete branch in GitHub
+1. ![Delete merged branch on GitHub, step 1](images/github/delete-branch1.png)
+2. ![Delete merged branch on GitHub, result](images/github/delete-branch2.png)
 
 ...then we switch back to the master branch and remove the
 `headings-color` branch from our repository.
