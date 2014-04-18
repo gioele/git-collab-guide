@@ -48,9 +48,9 @@ the main `fluffytron` repository.
 
 To fork the main repository we use the GitHub interface.
 
-![Forking on GitHub, step 1](images/github/fork1.png)
-![Forking on GitHub, step 2](images/github/fork2.png)
-![Forking on GitHub, step 3](images/github/fork3.png)
+1. ![Forking on GitHub, step 1](images/github/fork1.png)
+2. ![Forking on GitHub, step 2](images/github/fork2.png)
+3. ![Forking on GitHub, step 3](images/github/fork3.png)
 
 With this procedure we told GitHub to copy the original `fluffytron`
 repository from Gioele's workspace to our workspace. Now we have
@@ -289,9 +289,9 @@ integration in the main repository.
 git doesn't have a standard way to request the integration of external
 changes; we will resort to using GitHub "pull requests".
 
-![Making a new pull request on GitHub, step 1](images/github/pr1.png)
-![Making a new pull request on GitHub, step 2](images/github/pr2.png)
-![Making a new pull request on GitHub, step 3](images/github/pr3.png)
+1. ![Making a new pull request on GitHub, step 1](images/github/pr1.png)
+2. ![Making a new pull request on GitHub, step 2](images/github/pr2.png)
+3. ![Making a new pull request on GitHub, step 3](images/github/pr3.png)
 
 When we create a pull request, what happens is that GitHub creates for
 us a new issue in the issue tracker of the `fluffytron` project. That
