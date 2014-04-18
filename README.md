@@ -6,6 +6,9 @@ to an existing project.
 
 The guide is available at <http://gioele.github.io/git-collab-guide>.
 
+If you find any mistake or typo, well, please fork, modify and make a pull
+request; you now know how to do that, don't you? ;)
+
 
 License
 -------
