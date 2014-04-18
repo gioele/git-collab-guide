@@ -1,6 +1,8 @@
 Git collaboration guide
 =======================
 
+By [Gioele Barabucci](http://svario.it/gioele); additional information at <http://svario.it/git-collab-guide>.
+
 There are many projects that are developed using git. However, many people
 do not contribute to these projects because of git and its reputation as a
 difficult tool. To be honest, git is a difficult tool, but if one focuses
