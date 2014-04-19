@@ -72,7 +72,7 @@ We need to clone this new repository onto our computer.
 
 Git has now downloaded a copy of our own repository in a directory in our
 computer. In git terms we just cloned our _remote repository_ into our
-_local repository_ (It is slightly confusing, isn't it? It will be clearer
+_local repository_. (It is slightly confusing, isn't it? It will be clearer
 later.)
 
 Let's move into this newly created directory and see what is inside it.
