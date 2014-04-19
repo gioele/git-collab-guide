@@ -46,18 +46,20 @@ More advanced users should read instead the <a href="http://git-scm.com/book">fr
 
 <h2 id="first-we-need-a-fork">First, we need a fork</h2>
 
-<p>The project <code>fluffytron</code> is hosted on GitHub. We will also use GitHub to
-store our own copy of the project.</p>
+<p>The project <code>fluffytron</code> is hosted on GitHub. The URL of the <code>fluffytron</code>
+project is <a href="https://github.com/gioele/fluffytron">https://github.com/gioele/fluffytron</a>.</p>
 
-<p>In git parlance, each copy of the project is a “repository”. A repository
-contains all the files of a project, plus much information about all the
-changes that those files went through.</p>
+<p>That project page is just a nice interface to the underlying git
+<em>repository</em>. In git parlance, a repository is a directory with a set of
+files that contains all the files of a project, plus much information about
+all the changes that those files went through. The URL of the <code>fluffytron</code>
+repository is <a href="https://github.com/gioele/fluffytron.git">https://github.com/gioele/fluffytron.git</a> (note the <code>.git</code>
+extension at the end).</p>
 
-<p>The URL of the <code>fluffytron</code> project is <a href="https://github.com/gioele/fluffytron">https://github.com/gioele/fluffytron</a>.</p>
-
-<p>We cannot make any modification to that repository. All the modifications
-we have to make them first in our copy of the repository and then ask the
-project maintainers to ingrate them. In git terms, we need to “fork”
+<p>We cannot make any modification to that repository. If we want
+to make changes we must first make a copy of the main repository, do
+the changes we want inside our copy, and then ask the project maintainers
+to integrate the changes we made. In git terms, we need to “fork”
 the main <code>fluffytron</code> repository.</p>
 
 <p>To fork the main repository we use the GitHub interface.</p>
@@ -70,9 +72,11 @@ the main <code>fluffytron</code> repository.</p>
 
 <p>With this procedure we told GitHub to copy the original <code>fluffytron</code>
 repository from Gioele’s workspace to our workspace. Now we have
-our own <code>fluffytron</code> repository available at <a href="https://github.com/git-learner/fluffytron">https://github.com/git-learner/fluffytron</a>.</p>
+our own copy of the <code>fluffytron</code> project at <a href="https://github.com/git-learner/fluffytron">https://github.com/git-learner/fluffytron</a>;
+the associated repository is available at <a href="https://github.com/git-learner/fluffytron.git">https://github.com/git-learner/fluffytron.git</a>.</p>
 
-<p>To do any modification we need to clone this new repository onto our computer.</p>
+<p>We have our own copy of the repository now, but how do modify the files?
+We need to clone this new repository onto our computer.</p>
 
 <pre><code><span class="cmdline"><span class="prompt">$ </span>git clone https://github.com/git-learner/fluffytron.git</span>
 Cloning into 'fluffytron'...
@@ -83,9 +87,9 @@ Unpacking objects: 100% (17/17), done.
 Checking connectivity... done.
 </code></pre>
 
-<p>Git has now downloaded a copy of our own repository in a directory of our
-computer. In git terms we just cloned our remote repository into our
-local repository (It is slightly confusing, isn’t it? It will be clearer
+<p>Git has now downloaded a copy of our own repository in a directory in our
+computer. In git terms we just cloned our <em>remote repository</em> into our
+<em>local repository</em>. (It is slightly confusing, isn’t it? It will be clearer
 later.)</p>
 
 <p>Let’s move into this newly created directory and see what is inside it.</p>
