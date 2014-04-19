@@ -77,6 +77,7 @@ GITHUB_IMAGES.each do |path|
 		system 'convert', source_path,
 		       '-crop', crop_factor,
 		       '+repage',
+		       '-define', 'png:exclude-chunks=date',
 		       file.name
 
 		ellipse_params = HIGHLIGHTS[file.name.split('/').last(2).join('/')]
@@ -88,7 +89,11 @@ GITHUB_IMAGES.each do |path|
 		       '-stroke', 'red', '-strokewidth', '4',
 		       '-fill', 'none',
 		       '-draw', "ellipse #{ellipse_params}",
+		       '-define', 'png:exclude-chunks=date',
+		       '-set', 'Copyright', 'Creative Commons Attribution-ShareAlike 4.0 International',
 		       file.name
+
+		system 'optipng', file.name
 	end
 end
 
