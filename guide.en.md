@@ -42,9 +42,10 @@ all the changes that those files went through. The URL of the `fluffytron`
 repository is <https://github.com/gioele/fluffytron.git> (note the `.git`
 extension at the end).
 
-We cannot make any modification to that repository. We must make a copy
-of the main repository, make changes to this copy,  and then ask the
-project maintainers to ingrate them. In git terms, we need to "fork"
+We cannot make any modification to that repository. If we want
+to make changes we must first make a copy of the main repository, do
+the changes we want inside our copy, and then ask the project maintainers
+to integrate the changes we made. In git terms, we need to "fork"
 the main `fluffytron` repository.
 
 To fork the main repository we use the GitHub interface.
