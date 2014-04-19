@@ -32,17 +32,18 @@ The steps
 First, we need a fork
 ---------------------
 
-The project `fluffytron` is hosted on GitHub. We will also use GitHub to
-store our own copy of the project.
+The project `fluffytron` is hosted on GitHub. The URL of the `fluffytron`
+project is <https://github.com/gioele/fluffytron>.
 
-In git parlance, each copy of the project is a "repository". A repository
-contains all the files of a project, plus much information about all the
-changes that those files went through.
+That project page is just a nice interface to the underlying git
+_repository_. In git parlance, a repository is a directory with a set of
+files that contains all the files of a project, plus much information about
+all the changes that those files went through. The URL of the `fluffytron`
+repository is <https://github.com/gioele/fluffytron.git> (note the `.git`
+extension at the end).
 
-The URL of the `fluffytron` project is <https://github.com/gioele/fluffytron>.
-
-We cannot make any modification to that repository. All the modifications
-we have to make them first in our copy of the repository and then ask the
+We cannot make any modification to that repository. We must make a copy
+of the main repository, make changes to this copy,  and then ask the
 project maintainers to ingrate them. In git terms, we need to "fork"
 the main `fluffytron` repository.
 
@@ -54,9 +55,11 @@ To fork the main repository we use the GitHub interface.
 
 With this procedure we told GitHub to copy the original `fluffytron`
 repository from Gioele's workspace to our workspace. Now we have
-our own `fluffytron` repository available at <https://github.com/git-learner/fluffytron>.
+our own copy of the `fluffytron` project at <https://github.com/git-learner/fluffytron>;
+the associated repository is available at <https://github.com/git-learner/fluffytron.git>.
 
-To do any modification we need to clone this new repository onto our computer.
+We have our own copy of the repository now, but how do modify the files?
+We need to clone this new repository onto our computer.
 
     $ git clone https://github.com/git-learner/fluffytron.git
     Cloning into 'fluffytron'...
@@ -66,9 +69,9 @@ To do any modification we need to clone this new repository onto our computer.
     Unpacking objects: 100% (17/17), done.
     Checking connectivity... done.
 
-Git has now downloaded a copy of our own repository in a directory of our
-computer. In git terms we just cloned our remote repository into our
-local repository (It is slightly confusing, isn't it? It will be clearer
+Git has now downloaded a copy of our own repository in a directory in our
+computer. In git terms we just cloned our _remote repository_ into our
+_local repository_ (It is slightly confusing, isn't it? It will be clearer
 later.)
 
 Let's move into this newly created directory and see what is inside it.
