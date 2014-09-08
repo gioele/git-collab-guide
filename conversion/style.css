@@ -17,6 +17,11 @@ h1 {
 	margin-bottom: 1em;
 }
 
+h2 {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
 pre {
 	color: rgb(200,200,200);
 	background-color: black;

@@ -1,0 +1,23 @@
+.vanilla-slider li {
+	visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.vanilla-slider li.vanilla-slider__item--current {
+	visibility: visible;
+	display: list-item;
+	position: static;
+}
+
+.vanilla-slider li img {
+	display: block;
+	width: 100%;
+}
+
+.vanilla-slider div {
+	text-align: center;
+	margin-bottom: 1em;
+}

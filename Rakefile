@@ -1,7 +1,8 @@
 require 'rake/clean'
 
 SITE_DIR = 'site'
-STYLES = ['print.css', 'style.css', 'typeplate.css']
+STYLES = ['print.css', 'style.css', 'typeplate.css', 'vanilla-slider.css']
+SCRIPTS = ['vanilla-slider.js', 'slider.js']
 GITHUB_IMAGES = %w[fork1 fork2 fork3 post-push1 post-push2 post-push3 post-push4 pr1 pr2 pr3 comment1 comment2 pr-update1 pr-update2 pr-update3 delete-branch1 delete-branch2].map { |path| "github/#{path}.png" }
 TORTOISE_IMAGES = []
 IMAGES = GITHUB_IMAGES + TORTOISE_IMAGES
@@ -26,7 +27,7 @@ HIGHLIGHTS = {
 task :default => :guide_en
 
 task :guide_en => "#{SITE_DIR}/guide.en.html"
-task :guide_en => STYLES.map { |path| "#{SITE_DIR}/#{path}" }
+task :guide_en => (STYLES + SCRIPTS).map { |path| "#{SITE_DIR}/#{path}" }
 task :guide_en => IMAGES.map { |path| "#{SITE_DIR}/images/#{path}" }
 
 directory SITE_DIR
@@ -55,7 +56,7 @@ file "#{SITE_DIR}/guide.en.html" do |file|
 	File.open(file.name, 'w') { |f| f << converted }
 end
 
-STYLES.each do |path|
+(STYLES + SCRIPTS).each do |path|
 	source_path = "conversion/#{path}"
 
 	file "#{SITE_DIR}/#{path}" => SITE_DIR
@@ -98,7 +99,7 @@ GITHUB_IMAGES.each do |path|
 end
 
 CLOBBER.include("#{SITE_DIR}/guide.en.html")
-STYLES.each do |path|
+(STYLES + SCRIPTS).each do |path|
 	CLOBBER.include("#{SITE_DIR}/#{path}")
 end
 IMAGES.each do |path|

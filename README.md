@@ -30,3 +30,6 @@ for more details.
 
 The included `typoplate.css` stylesheet is based on the original published
 on <http://typeplate.com> under the CC-BY 3.0 license.
+
+The included `vanilla-slider` script is based on the `Wallop Slider`
+published on <http://pedroduarte.me/wallop-slider/> under the MIT license.
